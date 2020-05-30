@@ -17,20 +17,18 @@ public class IdleGame : MonoBehavior
     public float timer;
     public int timerCap = 30;
 ;
-/*
     public Text moneyText;
     public Text dpsText;
+
     public Text stageText;
-    public Text killsText;
+    public Text healthText;
     public Text healthText;
     public Text timerText;
 
     public GameObject back;
     public GameObject forward;
 
-    public Image healthBar;
-    public Image timerBar;
-*/
+    
     public void start()
     {   
         ClickUpgrade ClickUpgrade = new ClickUpgrade(1, 5, 1);
@@ -39,10 +37,10 @@ public class IdleGame : MonoBehavior
         HeroUpgrade CarlUpgrade = new HeroUpgrade("Carl", 500, 1);
 
         if (Stage%5 != 0){
-            Mob StageEnemy = new Mob(Stage)
+            Mob StageEnemy = new Mob(Stage);
 		}
         else{
-            Boss StageEnemy = new Boss(Stage)
+            Boss StageEnemy = new Boss(Stage);
 		}
 
     }
