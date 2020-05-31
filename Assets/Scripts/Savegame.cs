@@ -10,6 +10,7 @@ using UnityEngine.UI;
 
 public class SaveGame : MonoBehaviour
 {
+<<<<<<< HEAD
     public void Save()
     {
 <<<<<<< HEAD
@@ -20,6 +21,11 @@ public class SaveGame : MonoBehaviour
         PlayerPrefs.SetFloat("SavedSheenDPS", SheenUpgrade.DPS);
         PlayerPrefs.SetFloat("SavedCarlDPS", CarlUpgrade.DPS);
 =======
+=======
+ 
+    public void Save()
+    {
+>>>>>>> df47c0f397aff8a0ffe94d1348fb7f908b58f474
         PlayerPrefs.SetInt("SavedStage", StageMax);
         PlayerPrefs.SetInt("SavedMoney", Coins);
 
@@ -38,6 +44,9 @@ public class SaveGame : MonoBehaviour
         PlayerPrefs.SetFloat("SavedCarlUpgrades", CarlUpgrade.DPC);
         PlayerPrefs.SetInt("SavedCarlCost", CarlUpgrade.Cost);
         PlayerPrefs.SetInt("SavedCarlLevel", CarlUpgrade.Level);
+<<<<<<< HEAD
 >>>>>>> bae8bada46ecac123f8a52c1d767a7228942a2c4
+=======
+>>>>>>> df47c0f397aff8a0ffe94d1348fb7f908b58f474
     }
 }
