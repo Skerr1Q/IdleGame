@@ -9,8 +9,8 @@ using UnityEngine.UI;
 
 interface IUpgrade : MonoBehavior
 {
-	public int Cost{get; set;}
-	public int Level{get; private set;}
+	private int Cost{get; set;}
+	private int Level{get; private set;}
 
 	public void addLevel();
 
@@ -18,7 +18,7 @@ interface IUpgrade : MonoBehavior
 
 class ClickUpgrade : IUpgrade
 {
-	public float Damage{get; set;}
+	private float Damage{get; set;}
 
 	public ClickUpgrade(float clickDamage, int clickCost, int clickLevel)
     {
@@ -36,8 +36,8 @@ class ClickUpgrade : IUpgrade
 
 class HeroUpgrade : IUpgrade
 {
-	public string Name{get;}
-	public float DPS{get; set;}
+	private string Name{get;}
+	private float DPS{get; set;}
 
 
 	public HeroUpgrade(string heroName, float heroDamage, int heroCost, int heroLevel)
