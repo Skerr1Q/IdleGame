@@ -10,7 +10,7 @@ using Unity.Engine.UI;
 public class SaveGame : MonoBehaviour
 {
  
-    public void SaveTheGame()
+    public void Save()
     {
         PlayerPrefs.SetInt("SavedStage", StageMax);
         PlayerPrefs.SetInt("SavedMoney", Coins);
