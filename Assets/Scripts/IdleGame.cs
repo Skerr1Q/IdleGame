@@ -13,7 +13,7 @@ public class IdleGame : MonoBehavior
 	public int Stage{get; set;}
 	public int StageMax{get; set;}
 	public  float Modifier{get; set;}
-    public float Timer{get; set;};
+    public float Timer { get; set; }
     protected int timerCap = 30;
 
     public Text coinsText;
@@ -106,4 +106,3 @@ public class IdleGame : MonoBehavior
     }
 
 }
-
