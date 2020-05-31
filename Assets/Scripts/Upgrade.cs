@@ -9,60 +9,50 @@ using UnityEngine.UI;
 
 interface IUpgrade : MonoBehavior
 {
+	private int Cost{get; set;}
+	private int Level{get; private set;}
 
 	public void addLevel();
-	public int	getDamage();
-	public int getLevel();
-	public void setCost();
-	public int getCost();
 
 }
 
 class ClickUpgrade : IUpgrade
 {
-	private float damage;
-	private int level;
-	private int cost;
+	private float Damage{get; set;}
 
 	public ClickUpgrade(float clickDamage, int clickCost, int clickLevel)
     {
-		damage = clickDamage;
-		cost = clickCost;
-		level = clickLevel;
+		Damage = clickDamage;
+		Cost = clickCost;
+		Level = clickLevel;
 	}
 
-
-	public void addLevel();
-	public int	getDamage();
-	public int getLevel();
-	public void setCost(int);
-	public int getCost();
+	public void addLevel()
+	{
+		Level += 1;
+	}
 
 }
 
 class HeroUpgrade : IUpgrade
 {
-	private string name;
-	private float damage;
-	private int cost;
-	private int level;
+	private string Name{get;}
+	private float DPS{get; set;}
+
 
 	public HeroUpgrade(string heroName, float heroDamage, int heroCost, int heroLevel)
     {
-		name = heroName;
-		damage = heroDamage;
-		cost = heroCost;
-		level = heroLevel;
+		Name = heroName;
+		DPS = heroDamage;
+		Cost = heroCost;
+		Level = heroLevel;
 
 	}
 
+	public void addLevel()
+	{
+		Level += 1;
+	}
 
-	public string getName();
-	public void setName(string);
-	public void addLevel();
-	public int getLevel();
-	public float getDamage();
-	public void setCost(int);
-	public int getCost();
 
 }

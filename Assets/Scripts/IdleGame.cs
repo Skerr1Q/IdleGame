@@ -9,21 +9,27 @@ using UnityEngine.UI;
 
 public class IdleGame : MonoBehavior
 {
-	public Coins{get; set;}
-	public Stage{get; set;}
-	public StageMax{get; set;}
-	public Modifier{get; set;}
+	public int Coins{get; set;}
+	public int Stage{get; set;}
+	public int StageMax{get; set;}
+	public  float Modifier{get; set;}
+    public float Timer{get; set;};
+    protected int timerCap = 30;
 
-    public float timer;
-    public int timerCap = 30;
-;
-    public Text moneyText;
+    public Text coinsText;
+    public GameObject coinsTextbox;
+
     public Text dpsText;
+    public GameObject dpsTextbox;
 
     public Text stageText;
+    public GameObject stageTextbox;
+
     public Text healthText;
-    public Text healthText;
+    public GameObject healthTextbox;
+
     public Text timerText;
+    public GameObject timerTextbox;
 
     public GameObject back;
     public GameObject forward;
@@ -33,99 +39,70 @@ public class IdleGame : MonoBehavior
     {   
         ClickUpgrade ClickUpgrade = new ClickUpgrade(1, 5, 1);
         HeroUpgrade JimmyUpgrade = new HeroUpgrade("Jimmy", 1, 20, 1);
-        HeroUpgrade SheenUpgrade = new HeroUpgrade("Sheen", 100, 1);
-        HeroUpgrade CarlUpgrade = new HeroUpgrade("Carl", 500, 1);
+        HeroUpgrade SheenUpgrade = new HeroUpgrade("Sheen", 50, 100, 1);
+        HeroUpgrade CarlUpgrade = new HeroUpgrade("Carl", 100, 500, 1);
 
-        if (Stage%5 != 0){
+        if ( Stage % 5 != 0 )
+        {
             Mob StageEnemy = new Mob(Stage);
 		}
-        else{
-            Boss StageEnemy = new Boss(Stage);
+        else
+        {
+            Boss StageEnemy = new Boss(Stage);                  
 		}
 
     }
 
     public void update()
     {
-        moneyText = "$" + money.ToString("F2");
-        stageText.text = "Stage - " + stage;
-        dpcText.text = dpc + "Damage per click";
-        killsText.text = kills + "/" + killsMax + "kills";
-        healthText.text = health + "/" + healthCap + "HP";
+        moneyText.GetComponent<Text>.text = "Coins: " + Coins;
+        stageText.GetComponent<Text>.text = "Stage: " + Stage;
+        dpcText.GetComponent<Text>.text = "DPS: " + getDPS();
+        healthText.GetComponent<Text>.text = StageEnemy.HP + "/" + StageEnemy.HPMax + "HP";
+    }
 
-        healthBar.fillAmount = (float)(health / healthCap);
+    public float getDPS(){
+        return (JimmyUpgrade.Damage + SheenUpgrade.Damage + CarlUpgrade.Damage);
+    }
 
-        if (stage > 1) back.gameObject.SetActive(true);
-        else
-            back.gameObject.SetActive(false);
-
-        if (stage != stageMax) forward.gameObject.SetActive(true);
-        else
-            forward.gameObject.SetActive(false);
-        IsBossCheker();
+    public void HitEnemy(){
+        StageEnemy.HP - ClickUpgrade.Damage;
 
     }
-     public void IsBossCheker()
+
+    public void AutoHitEnemy()
     {
-        if (stage % 5 == 0)
-        {
-            isBoss = 10;
-            stageText.text = "(BOSS!) Stage - " + stage;
-            timer -= Time.deltaTime;
-            if( timer <= 0)
+        if (StageEnemy.GetType() == Boss)
             {
-                stage -= 1;
-                health = healthCap;
+                timerTextbox.gameObject.SetActive(true);
+                Timer -= Time.deltaTime;
+                timerText.GetComponent<Text>.text = Timer + " / " timerCap;
             }
 
-            timerText.text = timer + "/" + timerCap;
-            timerBar.gameObject.SetActive(true);
-            timerBar.fillmount = timer / timerCap;
-        }
-        else
-        {
-            isBoss = 1;
-            stageText.text = "Stage - " + stage;
-            timerText.text = "";
-            timerBar.gameObject.SetActive(false);
-        }
-    }
+        StageEnemy.HP -= getDPS();
 
-    public void Hit()
-    {
-        health -= dpc;
-        if (health <= 0)
-        {
-            money += System.Math.Ceiling(healthCap / 14);
-            
-            if (stage == stageMax)
+        if (Timer <= 0)
             {
-                kills += 1;
-                if (kills >= killsMax)
+                StageEnemy.HP = StageEnemy.HPMax;
+            }
+
+        if (StageEnemy.HP <= 0)
+            {
+                if (StageEnemy.GetType() == Mob)
                 {
-                    kills = 0;
-                    stage += 1;
-                    stageMax += 1;
+                    Coins += StageEnemy.getReward(Stage);
                 }
-            }
-            IsBossCheker();
-            health = healthCap;
-            if (isBoss == 10)
-            {
-                timer = timerCap;
-                killsMax = 1;
-            }
-            killsMax = 10;
-        }
-    }
+                if (StageEnemy.GetType() == Boss)
+                {
+                    Modifier = StageEnemy.Reward;
+                }
 
-    public void backStage()
-    {
-        if (getStage() > 1) setStage(getStage - 1);
-    }
-    public void forwardStage()
-    {
-        if (getStage() != GetStageMax()) setStage(getStage + 1);
+                Stage += 1;
+
+                Timer = (float)timerCap;
+            }
+
+        }
     }
 
 }

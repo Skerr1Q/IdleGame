@@ -7,34 +7,30 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-abstract class Enemy
+abstract class Enemy: MonoBehavior
 {
-	public float HP{get;}
+	public float HP{get; set;}
 	public int HPMax{get;}
-	public int reward;
+	public abstract int Reward{get;}
 
-	abstract public float getReward;
 }
 
 class Mob: Enemy
 {
+	public override int Reward{get; private set;}
 
-	public Mob(int stage)  : base(){
+	public Mob(int stage){
 		HPMax = 10 +  (stage * 2);
-	}
-
-	public override int getReward(int stage){
-		return (4 + (int)((stage - 1) * 2));
+		Reward = (4 + (int)((stage - 1) * 2));
 	}
 }
 
 class Boss: Enemy
 {
+	public override int Reward{get; private set;}
 
-	public Boss(int stage)  : base(){
+	public Boss(int stage){
 		HPMax = 10 +  (stage * 4);
-	}
-	public override float getReward(){
-		return 1.0 + (0.2 * (stage/5));
+		Reward = 1.0 + (0.2 * (stage/5));
 	}
 }
