@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -8,12 +8,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class SaveGame : MonoBehaviour
+public class Save : MonoBehaviour
 {
     public GameObject saveButton;
     public GameObject saveText;
 
-    public void Save()
+    public void SaveGame()
     {
         PlayerPrefs.SetInt("SavedStage", Game.Stage);
         PlayerPrefs.SetInt("SavedStage", Game.StageMax);
@@ -38,3 +38,4 @@ public class SaveGame : MonoBehaviour
         
     }
 }
+*/

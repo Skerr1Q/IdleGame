@@ -56,11 +56,11 @@ public class Game
         {
         if (StageEnemy.HP <= 0)
             {
-                if (StageEnemy.GetType() is typeof(Mob))
+                if (StageEnemy is Mob)
                 {
                     Coins += StageEnemy.Reward;
                 }
-                if (StageEnemy.GetType() is typeof(Boss))
+                if (StageEnemy is Boss)
                 {
                     Modifier = StageEnemy.Reward;
                 }

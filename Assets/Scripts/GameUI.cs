@@ -26,14 +26,12 @@ public class GameUI : MonoBehaviour
     public float Timer{get; set;}
     private int timerCap = 30;
 
-
-
     public void StartUI()
     {
         coinsText.text = "Coins: " + IdleGame.Coins;
         stageText.text = "Stage: " + IdleGame.Stage;
         dpsText.text = "DPS: " + IdleGame.getDPS();
-        healthText.text = IdleGame.StageEnemy.HP + "/" + IdleGame.StageEnemy.HPMax + "HP";
+        healthText.text = "Health: " + IdleGame.StageEnemy.HP + "/" + IdleGame.StageEnemy.HPMax + "HP";
     }
 
     public void ClickUpgradeButtonClick()
@@ -71,12 +69,13 @@ public class GameUI : MonoBehaviour
     
     public void ClickEnemyButton()
     {
+        healthText.text = IdleGame.StageEnemy.HP + " / " IdleGame.StageEnemy.HPMax;
         IdleGame.clickEnemy();
     }
 
     public void enableTimer()
     {
-        if (IdleGame.StageEnemy.GetType() is typeof(Boss))
+        if (IdleGame.StageEnemy is Boss)
         {
             Timer -= Time.deltaTime;
             timerText.text = Timer + " / " + timerCap;

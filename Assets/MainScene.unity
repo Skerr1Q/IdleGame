@@ -426,8 +426,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.625, y: 1.8750004}
-  m_SizeDelta: {x: 1140, y: 486.25}
+  m_AnchoredPosition: {x: 0, y: 0.000015736}
+  m_SizeDelta: {x: 1148.75, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &438598113
 MonoBehaviour:
@@ -1697,7 +1697,7 @@ GameObject:
   - component: {fileID: 1249588977}
   - component: {fileID: 1249588976}
   m_Layer: 5
-  m_Name: UpgradeClick
+  m_Name: UpgradeClickText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

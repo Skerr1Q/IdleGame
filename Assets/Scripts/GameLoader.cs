@@ -1,10 +1,12 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.UI;
 
-public class GameLoader : MonBehaviour
+public class GameLoader : MonoBehaviour
 {
     public int savedStage;
     public int savedStageMax;
@@ -24,7 +26,7 @@ public class GameLoader : MonBehaviour
 
     void Start()
     {
-        if(LoadGame.isLoading == true)
+        if(Load.isLoading == true)
         {
             savedStage = PlayerPrefs.GetInt("SavedStage");
             Game.Stage = savedStage;
@@ -74,3 +76,4 @@ public class GameLoader : MonBehaviour
         }
     }
 }
+*/
