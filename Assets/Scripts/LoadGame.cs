@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.UI;
 
-namespace LoadGame
+public class LoadGame : MonoBehaviour
 {
-    class Program
+    public static bool isLoading = false;
+    public void LoadGame()
     {
-        static void Main(string[] args)
-        {
-        }
+        isLoading = true;
     }
 }

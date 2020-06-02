@@ -19,7 +19,7 @@ class Exception
     {
         try
         {
-            Process(stage, stageMax);
+            Process(Stage, StageMax);
         }
         catch(ArgumentOutOfRangeException e )
         {
