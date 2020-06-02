@@ -8,39 +8,84 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class IdleGameUI : MonoBehaviour
+public class GameUI : MonoBehaviour
 {
     public Game IdleGame = new Game();
 
     public Text coinsText;
-    public GameObject coinsTextbox;
-
     public Text dpsText;
-    public GameObject dpsTextbox;
-
     public Text stageText;
-    public GameObject stageTextbox;
-
     public Text healthText;
-    public GameObject healthTextbox;
-
     public Text timerText;
-    public GameObject timerTextbox;
 
-    public GameObject back;
-    public GameObject forward;
+    public Text ClickText;
+    public Text JimmyText;
+    public Text SheenText;
+    public Text CarlText;
 
-    public void Start()
+    public float Timer{get; set;}
+    private int timerCap = 30;
+
+
+
+    public void StartUI()
     {
-        moneyText.GetComponent<Text>.text = "Coins: " + Game.Coins;
-        stageText.GetComponent<Text>.text = "Stage: " + Game.Stage;
-        dpcText.GetComponent<Text>.text = "DPS: " + Game.getDPS();
-        healthText.GetComponent<Text>.text = Game.StageEnemy.HP + "/" + Game.StageEnemy.HPMax + "HP";
+        coinsText.text = "Coins: " + IdleGame.Coins;
+        stageText.text = "Stage: " + IdleGame.Stage;
+        dpsText.text = "DPS: " + IdleGame.getDPS();
+        healthText.text = IdleGame.StageEnemy.HP + "/" + IdleGame.StageEnemy.HPMax + "HP";
     }
 
-    public void Upgrade()
+    public void ClickUpgradeButtonClick()
     {
+        IdleGame.Coins -= IdleGame.ClickUpgrade.Cost;
+        IdleGame.ClickUpgrade.addLevel();
+        ClickText.text = "Upgrade Clicks \n Level:" + IdleGame.ClickUpgrade.Level +
+        "Cost: " + IdleGame.ClickUpgrade.Cost + "Damage: " + IdleGame.ClickUpgrade.Damage;
 
     }
 
+    public void ClickUpgradeButtonJimmy()
+    {
+        IdleGame.Coins -= IdleGame.JimmyUpgrade.Cost;
+        IdleGame.JimmyUpgrade.addLevel();
+        JimmyText.text = "Upgrade Jimmy \n Level:" + IdleGame.JimmyUpgrade.Level +
+        "Cost: " + IdleGame.JimmyUpgrade.Cost + "DPS: " + IdleGame.JimmyUpgrade.DPS;
+    }
+
+    public void ClickUpgradeButtonSheen()
+    {
+        IdleGame.Coins -= IdleGame.SheenUpgrade.Cost;
+        IdleGame.SheenUpgrade.addLevel();
+        SheenText.text = "Upgrade Sheen \n Level:" + IdleGame.SheenUpgrade.Level +
+        "Cost: " + IdleGame.SheenUpgrade.Cost + "DPS: " + IdleGame.SheenUpgrade.DPS;
+    }
+
+    public void ClickUpgradeButtonCarl()
+    {
+        IdleGame.Coins -= IdleGame.CarlUpgrade.Cost;
+        IdleGame.CarlUpgrade.addLevel();
+        CarlText.text = "Upgrade Carl \n Level:" + IdleGame.CarlUpgrade.Level +
+        "Cost: " + IdleGame.CarlUpgrade.Cost + "DPS: " + IdleGame.CarlUpgrade.DPS;
+    }
+    
+    public void ClickEnemyButton()
+    {
+        IdleGame.clickEnemy();
+    }
+
+    public void enableTimer()
+    {
+        if (IdleGame.StageEnemy.GetType() is typeof(Boss))
+        {
+            Timer -= Time.deltaTime;
+            timerText.text = Timer + " / " + timerCap;
+        }
+                        
+        if (Timer <= 0)
+        {
+            IdleGame.StageEnemy.HP = IdleGame.StageEnemy.HPMax;
+            Timer = (float)timerCap;
+        }
+    }
 }

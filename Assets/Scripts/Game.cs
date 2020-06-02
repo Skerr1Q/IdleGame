@@ -7,29 +7,33 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Game : MonoBehavior
+public class Game
 {
 	public int Coins{get; set;}
 	public int Stage{get; set;}
 	public int StageMax{get; set;}
-	public  float Modifier{get; set;}
-
-    public float Timer{get; set;}
-    private int timerCap = 30;
+	public float Modifier{get; set;}
 
     public Enemy StageEnemy{get; set;}
     
-    public void start()
+    public HeroUpgrade JimmyUpgrade{get; set;}
+    public HeroUpgrade CarlUpgrade{get; set;}
+    public HeroUpgrade SheenUpgrade{get; set;}
+    public ClickUpgrade ClickUpgrade{get; set;}
+
+    public Game()
     {   
-        ClickUpgrade ClickUpgrade = new ClickUpgrade(1, 5, 1);
-        HeroUpgrade JimmyUpgrade = new HeroUpgrade("Jimmy", 1, 20, 1);
-        HeroUpgrade SheenUpgrade = new HeroUpgrade("Sheen", 50, 100, 1);
-        HeroUpgrade CarlUpgrade = new HeroUpgrade("Carl", 100, 500, 1);
-    }
+        Coins = 0;
+        Stage = 1;       
+        StageMax = 1;
+        Modifier = 1.0f;
 
-    public void update()
-    {
+        ClickUpgrade = new ClickUpgrade(1, 5, 1);
+        JimmyUpgrade = new HeroUpgrade("Jimmy", 1.0f, 20, 1);
+        SheenUpgrade = new HeroUpgrade("Sheen", 50.0f, 100, 1);
+        CarlUpgrade = new HeroUpgrade("Carl", 100.0f, 500, 1);
 
+        StageEnemy = spawnEnemy(1);
     }
 
     public float getDPS(){
@@ -41,51 +45,34 @@ public class Game : MonoBehavior
         StageEnemy.HP -= ClickUpgrade.Damage;
         checkEnemy();
     }
-
+/*
     public void autoHitEnemy()
     {
         StageEnemy.HP -= getDPS();
         checkEnemy();
     }
-
+*/
     public void checkEnemy()
         {
+        if (StageEnemy.HP <= 0)
             {
-                if (StageEnemy.GetType() == Boss)
-                    {
-                        timerTextbox.gameObject.SetActive(true);
-                        Timer -= Time.deltaTime;
-                        timerText.GetComponent<Text>.text = Timer + " / " timerCap;
-                    }
-                    
-                if (Timer <= 0)
-                    {
-                        StageEnemy.HP = StageEnemy.HPMax;
-                    }
+                if (StageEnemy.GetType() is typeof(Mob))
+                {
+                    Coins += StageEnemy.Reward;
+                }
+                if (StageEnemy.GetType() is typeof(Boss))
+                {
+                    Modifier = StageEnemy.Reward;
+                }
 
-                if (StageEnemy.HP <= 0)
-                    {
-                        if (StageEnemy.GetType() == Mob)
-                        {
-                            Coins += StageEnemy.Reward;
-                        }
-                        if (StageEnemy.GetType() == Boss)
-                        {
-                            Modifier = StageEnemy.Reward;
-                        }
-
-                        Stage += 1;
-
-                        Timer = (float)timerCap;
-                        timerTextbox.gameObject.SetActive(false);
-
-                        spawnEnemy(Stage);
-                    }
+                Stage += 1;
+                StageEnemy = spawnEnemy(Stage);
             }
         }
 
-    public void spawnEnemy(int stage)
+    public Enemy spawnEnemy(int stage)
     {
+        Enemy StageEnemy;
         if ( stage % 5 != 0 )
         {
             StageEnemy = new Mob(stage);
@@ -94,6 +81,7 @@ public class Game : MonoBehavior
         {
             StageEnemy = new Boss(stage);                  
 		}
+        return StageEnemy;
     }
 
 
