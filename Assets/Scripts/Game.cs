@@ -28,12 +28,12 @@ public class Game
         StageMax = 1;
         Modifier = 1.0f;
 
-        ClickUpgrade = new ClickUpgrade(1, 5, 1);
-        JimmyUpgrade = new HeroUpgrade("Jimmy", 1.0f, 20, 1);
-        SheenUpgrade = new HeroUpgrade("Sheen", 50.0f, 100, 1);
-        CarlUpgrade = new HeroUpgrade("Carl", 100.0f, 500, 1);
+        ClickUpgrade = new ClickUpgrade(1, 5);
+        JimmyUpgrade = new HeroUpgrade("Jimmy", 1.0f, 50);
+        SheenUpgrade = new HeroUpgrade("Sheen", 5.0f, 100);
+        CarlUpgrade = new HeroUpgrade("Carl", 30.0f, 200);
 
-        StageEnemy = spawnEnemy(1);
+        StageEnemy = spawnEnemy(Stage);
     }
 
     public float getDPS(){

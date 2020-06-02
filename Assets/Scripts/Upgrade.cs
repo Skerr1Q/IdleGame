@@ -17,23 +17,26 @@ interface IUpgrade
 }
 
 public class ClickUpgrade : IUpgrade
-{
-	public int Cost{get; set;}
-	public int Level{get; set;}
-	public int Damage{get; set;}
+{	
+	private int _Cost;
+	public int Cost{get{return _Cost*Level;} set{_Cost = value;}}
 
-	public ClickUpgrade(int clickDamage, int clickCost, int clickLevel)
+	private int _Damage;
+	public int Damage{get{return _Damage*Level;} set{_Damage = value;}}
+
+	public int Level{get; set;}
+
+
+	public ClickUpgrade(int baseDamage, int baseCost)
     {
-		Damage = clickDamage;
-		Cost = clickCost;
-		Level = clickLevel;
+		_Damage = baseDamage;
+		_Cost = baseCost;
+		Level = 1;
 	}
 
 	public void addLevel()
 	{
 		Level += 1;
-		Damage *= 2;
-		Cost *= 3; 
 	}
 
 }
@@ -41,24 +44,27 @@ public class ClickUpgrade : IUpgrade
 public class HeroUpgrade : IUpgrade
 {
 	public string Name{get;}
-	public float DPS{get; set;}
-	public int Cost{get; set;}
+
+	private int _Cost;
+	public int Cost{get{return _Cost*Level;} set{_Cost = value;}}
+
+	private float _DPS;
+	public float DPS{get{return _DPS*(float)Level;} set{_DPS = value;}}
+
 	public int Level{get; set;}
 
-	public HeroUpgrade(string heroName, float heroDamage, int heroCost, int heroLevel)
+	public HeroUpgrade(string heroName, float baseDps, int baseCost)
     {
 		Name = heroName;
-		DPS = heroDamage;
-		Cost = heroCost;
-		Level = heroLevel;
+		DPS = baseDps;
+		Cost = baseCost;
+		Level = 0;
 
 	}
 
 	public void addLevel()
 	{
 		Level += 1;
-		DPS *= 1.5f;
-		Cost *= 3; 
 	}
 
 
