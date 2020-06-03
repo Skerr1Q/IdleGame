@@ -66,9 +66,4 @@ public class HeroUpgrade : IUpgrade
 	{
 		Level += 1;
 	}
-	public IEnumerator StartIdle(Enemy StageEnemy)
-	{
-		StageEnemy.HP -= DPS;
-		yield return new WaitForSeconds(1);
-	}
 }
