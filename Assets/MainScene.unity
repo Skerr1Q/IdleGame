@@ -190,7 +190,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Stage:'
+  m_Text: Stage
 --- !u!222 &251788915
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -230,7 +230,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1132655841}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -279,7 +279,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 310582563}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 969774027}
+        m_MethodName: ClickEnemyButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &310582563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,7 +359,7 @@ RectTransform:
   m_Children:
   - {fileID: 603040423}
   m_Father: {fileID: 1132655841}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -422,7 +433,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1132655841}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -535,7 +546,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'DPS:'
+  m_Text: DPS
 --- !u!222 &511227986
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -691,7 +702,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Timer:'
+  m_Text: Timer
 --- !u!222 &555318241
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -811,7 +822,7 @@ RectTransform:
   - {fileID: 1249588975}
   - {fileID: 1597784098}
   m_Father: {fileID: 1132655841}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -860,7 +871,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 626323422}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 969774027}
+        m_MethodName: ClickUpgradeButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &626323422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -931,7 +953,7 @@ RectTransform:
   - {fileID: 2032420724}
   - {fileID: 1326479535}
   m_Father: {fileID: 1132655841}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -980,7 +1002,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 643813135}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 969774027}
+        m_MethodName: ClickUpgradeButtonJimmy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &643813135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,7 +1063,7 @@ GameObject:
   - component: {fileID: 685355658}
   - component: {fileID: 685355657}
   m_Layer: 5
-  m_Name: EnemyHealth
+  m_Name: EnemyHealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1087,7 +1120,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Health :'
+  m_Text: Enemy Health
 --- !u!222 &685355658
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1128,7 +1161,7 @@ RectTransform:
   m_Children:
   - {fileID: 1408850513}
   m_Father: {fileID: 1132655841}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1246,7 +1279,7 @@ RectTransform:
   m_Children:
   - {fileID: 555318239}
   m_Father: {fileID: 1132655841}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1290,6 +1323,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836379140}
   m_CullTransparentMesh: 0
+--- !u!1 &969774026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 969774028}
+  - component: {fileID: 969774027}
+  m_Layer: 5
+  m_Name: ScriptGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &969774027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969774026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f31247c5cebce488b59b215731b014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinsText: {fileID: 1758817570}
+  dpsText: {fileID: 511227985}
+  stageText: {fileID: 251788914}
+  healthText: {fileID: 685355657}
+  timerText: {fileID: 555318240}
+  nameText: {fileID: 2067271210}
+  ClickText: {fileID: 1249588976}
+  JimmyText: {fileID: 2032420725}
+  SheenText: {fileID: 1801818851}
+  CarlText: {fileID: 1306562142}
+--- !u!224 &969774028
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969774026}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1132655841}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1132655840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,6 +1411,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 969774028}
   - {fileID: 438598112}
   - {fileID: 1727294993}
   - {fileID: 310582561}
@@ -1514,7 +1606,7 @@ RectTransform:
   m_Children:
   - {fileID: 2056968356}
   m_Father: {fileID: 1132655841}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1754,9 +1846,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Upgrade Clicks
-
-    Level:    Cost:    DPS:'
+  m_Text: Upgrade Clicks
 --- !u!222 &1249588977
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1834,9 +1924,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Upgrade Carl
-
-    Level:    Cost:    DPS:'
+  m_Text: Upgrade Carl
 --- !u!222 &1306562143
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1876,7 +1964,7 @@ RectTransform:
   m_Children:
   - {fileID: 511227984}
   m_Father: {fileID: 1132655841}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2103,7 +2191,7 @@ RectTransform:
   m_Children:
   - {fileID: 1912173069}
   m_Father: {fileID: 1132655841}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2253,7 +2341,7 @@ RectTransform:
   m_Children:
   - {fileID: 1184178669}
   m_Father: {fileID: 1132655841}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2373,7 +2461,7 @@ RectTransform:
   - {fileID: 685355656}
   - {fileID: 251788913}
   m_Father: {fileID: 1132655841}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2486,7 +2574,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Coins:'
+  m_Text: Coins
 --- !u!222 &1758817571
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2564,9 +2652,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Upgrade Sheen
-
-    Level:    Cost:    DPS:'
+  m_Text: Upgrade Sheen
 --- !u!222 &1801818852
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2606,7 +2692,7 @@ RectTransform:
   m_Children:
   - {fileID: 1758817569}
   m_Father: {fileID: 1132655841}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2683,7 +2769,7 @@ RectTransform:
   - {fileID: 1801818850}
   - {fileID: 1918970315}
   m_Father: {fileID: 1132655841}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2732,7 +2818,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1873450340}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 969774027}
+        m_MethodName: ClickUpgradeButtonSheen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1873450340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2803,7 +2900,7 @@ RectTransform:
   - {fileID: 1306562141}
   - {fileID: 2060186284}
   m_Father: {fileID: 1132655841}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2852,7 +2949,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1883498850}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 969774027}
+        m_MethodName: ClickUpgradeButtonCarl
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1883498850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2959,7 +3067,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Modifier:'
+  m_Text: Modifier
 --- !u!222 &1912173071
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3074,7 +3182,7 @@ RectTransform:
   m_Children:
   - {fileID: 520259315}
   m_Father: {fileID: 1132655841}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3230,9 +3338,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Upgrade Jimmy
-
-    Level:    Cost:    DPS:'
+  m_Text: Upgrade Jimmy
 --- !u!222 &2032420726
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3405,7 +3511,7 @@ GameObject:
   - component: {fileID: 2067271211}
   - component: {fileID: 2067271210}
   m_Layer: 5
-  m_Name: EnemyName
+  m_Name: EnemyNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3462,7 +3568,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Enemy Name:'
+  m_Text: Enemy Name
 --- !u!222 &2067271211
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -46,7 +47,7 @@ public class HeroUpgrade : IUpgrade
 	public string Name{get;}
 
 	private int _Cost;
-	public int Cost{get{return _Cost*Level;} set{_Cost = value;}}
+	public int Cost{get{return _Cost*(Level+1);} set{_Cost = value;}}
 
 	private float _DPS;
 	public float DPS{get{return _DPS*(float)Level;} set{_DPS = value;}}
@@ -61,11 +62,13 @@ public class HeroUpgrade : IUpgrade
 		Level = 0;
 
 	}
-
 	public void addLevel()
 	{
 		Level += 1;
 	}
-
-
+	public IEnumerator StartIdle(Enemy StageEnemy)
+	{
+		StageEnemy.HP -= DPS;
+		yield return new WaitForSeconds(1);
+	}
 }

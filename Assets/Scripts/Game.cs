@@ -36,7 +36,8 @@ public class Game
         StageEnemy = spawnEnemy(Stage);
     }
 
-    public float getDPS(){
+    public float getDPS()
+    {
         return (JimmyUpgrade.DPS + SheenUpgrade.DPS + CarlUpgrade.DPS);
     }
 
@@ -45,13 +46,13 @@ public class Game
         StageEnemy.HP -= ClickUpgrade.Damage;
         checkEnemy();
     }
-/*
+
     public void autoHitEnemy()
     {
-        StageEnemy.HP -= getDPS();
+        StageEnemy.HP -= (getDPS()/Screen.currentResolution.refreshRate);
         checkEnemy();
     }
-*/
+
     public void checkEnemy()
         {
         if (StageEnemy.HP <= 0)
