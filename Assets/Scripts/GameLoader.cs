@@ -27,81 +27,84 @@ public class GameLoader : MonoBehaviour
     public int savedCarlCost;
     public int savedCarlLevel;
 
-    public void Load(Game IdleGame)
+    public Game Load()
     {
-        savedStage = PlayerPrefs.GetInt("SavedStage");
+        Game IdleGame = new Game();
+
+        savedStage = Int32.Parse(PlayerPrefs.GetString("SavedStage"));
         IdleGame.Stage = savedStage;
 
-        savedStageMax = PlayerPrefs.GetInt("SavedStageMax");
+        savedStageMax = Int32.Parse(PlayerPrefs.GetString("SavedStageMax"));
         IdleGame.StageMax = savedStageMax;
 
-        savedCoins = PlayerPrefs.GetInt("SavedMoney");
+        savedCoins = Int32.Parse(PlayerPrefs.GetString("SavedCoins"));
         IdleGame.Coins = savedCoins;
 
-        savedModifier = PlayerPrefs.GetFloat("SavedModifier");
+        savedModifier = Single.Parse(PlayerPrefs.GetString("SavedModifier"));
         IdleGame.Modifier = savedModifier;
 
-        savedClickDamage = PlayerPrefs.GetInt("SavedClickDamage");
+        savedClickDamage = Int32.Parse(PlayerPrefs.GetString("SavedClickDamage"));
         IdleGame.ClickUpgrade.Damage = savedClickDamage;
 
-        savedClickCost = PlayerPrefs.GetInt("SavedClickCost");
+        savedClickCost = Int32.Parse(PlayerPrefs.GetString("SavedClickCost"));
         IdleGame.ClickUpgrade.Cost = savedClickCost;
 
-        savedClickLevel = PlayerPrefs.GetInt("SavedClickLevel");
+        savedClickLevel = Int32.Parse(PlayerPrefs.GetString("SavedClickLevel"));
         IdleGame.ClickUpgrade.Level = savedClickLevel;
 
-        savedJimmyDPS = PlayerPrefs.GetFloat("SavedJimmyDPS");
+        savedJimmyDPS = Single.Parse(PlayerPrefs.GetString("SavedJimmyDPS"));
         IdleGame.JimmyUpgrade.DPS = savedJimmyDPS;
 
-        savedJimmyCost = PlayerPrefs.GetInt("SavedJimmyCost");
+        savedJimmyCost = Int32.Parse(PlayerPrefs.GetString("SavedJimmyCost"));
         IdleGame.JimmyUpgrade.Cost = savedJimmyCost;
 
-        savedJimmyLevel = PlayerPrefs.GetInt("SavedJimmyLevel");
+        savedJimmyLevel = Int32.Parse(PlayerPrefs.GetString("SavedJimmyLevel"));
         IdleGame.JimmyUpgrade.Level = savedJimmyLevel;
 
-        savedSheenDPS = PlayerPrefs.GetFloat("SavedSheenDPS");
+        savedSheenDPS = Single.Parse(PlayerPrefs.GetString("SavedSheenDPS"));
         IdleGame.SheenUpgrade.DPS = savedSheenDPS;
 
-        savedSheenCost = PlayerPrefs.GetInt("SavedSheenCost");
+        savedSheenCost = Int32.Parse(PlayerPrefs.GetString("SavedSheenCost"));
         IdleGame.SheenUpgrade.Cost = savedSheenCost;
 
-        savedSheenLevel = PlayerPrefs.GetInt("SavedSheenLevel");
+        savedSheenLevel = Int32.Parse(PlayerPrefs.GetString("SavedSheenLevel"));
         IdleGame.SheenUpgrade.Level = savedSheenLevel;
 
-        savedCarlDPS = PlayerPrefs.GetFloat("SavedCarlDPS");
+        savedCarlDPS = Single.Parse(PlayerPrefs.GetString("SavedCarlDPS"));
         IdleGame.CarlUpgrade.DPS = savedCarlDPS;
 
-        savedCarlCost = PlayerPrefs.GetInt("SavedCarlCost");
+        savedCarlCost = Int32.Parse(PlayerPrefs.GetString("SavedCarlCost"));
         IdleGame.CarlUpgrade.Cost = savedCarlCost;
 
-        savedCarlLevel = PlayerPrefs.GetInt("SavedCarlLevel");
+        savedCarlLevel = Int32.Parse(PlayerPrefs.GetString("SavedCarlLevel"));
         IdleGame.CarlUpgrade.Level = savedCarlLevel;
 
+        return IdleGame;
     }
 
     public void Save(Game IdleGame)
     {
-        PlayerPrefs.SetInt("SavedStage", IdleGame.Stage);
-        PlayerPrefs.SetInt("SavedStage", IdleGame.StageMax);
-        PlayerPrefs.SetInt("SavedMoney", IdleGame.Coins);
-        PlayerPrefs.SetFloat("SavedModifier", IdleGame.Modifier);
+        PlayerPrefs.SetString("SavedStage", IdleGame.Stage.ToString());
+        PlayerPrefs.SetString("SavedStageMax", IdleGame.StageMax.ToString());
+        PlayerPrefs.SetString("SavedCoins", IdleGame.Coins.ToString());
+        PlayerPrefs.SetString("SavedModifier", IdleGame.Modifier.ToString());
 
-        PlayerPrefs.SetInt("SavedClickDamage", IdleGame.ClickUpgrade.Damage);
-        PlayerPrefs.SetInt("SavedClickCost", IdleGame.ClickUpgrade.Cost);
-        PlayerPrefs.SetInt("SavedClickLevel", IdleGame.ClickUpgrade.Level);
+        PlayerPrefs.SetString("SavedClickDamage", IdleGame.ClickUpgrade.Damage.ToString());
+        PlayerPrefs.SetString("SavedClickCost", IdleGame.ClickUpgrade.Cost.ToString());
+        PlayerPrefs.SetString("SavedClickLevel", IdleGame.ClickUpgrade.Level.ToString());
 
-        PlayerPrefs.SetFloat("SavedJimmyDPS", IdleGame.JimmyUpgrade.DPS);
-        PlayerPrefs.SetInt("SavedJimmyCost", IdleGame.JimmyUpgrade.Cost);
-        PlayerPrefs.SetInt("SavedJimmyLevel", IdleGame.JimmyUpgrade.Level);
+        PlayerPrefs.SetString("SavedJimmyDPS", IdleGame.JimmyUpgrade.DPS.ToString());
+        PlayerPrefs.SetString("SavedJimmyCost", IdleGame.JimmyUpgrade.Cost.ToString());
+        PlayerPrefs.SetString("SavedJimmyLevel", IdleGame.JimmyUpgrade.Level.ToString());
 
-        PlayerPrefs.SetFloat("SavedSheenDPS", IdleGame.SheenUpgrade.DPS);
-        PlayerPrefs.SetInt("SavedSheenCost", IdleGame.SheenUpgrade.Cost);
-        PlayerPrefs.SetInt("SavedSheenLevel", IdleGame.SheenUpgrade.Level);
+        PlayerPrefs.SetString("SavedSheenDPS", IdleGame.SheenUpgrade.DPS.ToString());
+        PlayerPrefs.SetString("SavedSheenCost", IdleGame.SheenUpgrade.Cost.ToString());
+        PlayerPrefs.SetString("SavedSheenLevel", IdleGame.SheenUpgrade.Level.ToString());
 
-        PlayerPrefs.SetFloat("SavedCarlDPS", IdleGame.CarlUpgrade.DPS);
-        PlayerPrefs.SetInt("SavedCarlCost", IdleGame.CarlUpgrade.Cost);
-        PlayerPrefs.SetInt("SavedCarlLevel", IdleGame.CarlUpgrade.Level);
+        PlayerPrefs.SetString("SavedCarlDPS", IdleGame.CarlUpgrade.DPS.ToString());
+        PlayerPrefs.SetString("SavedCarlCost", IdleGame.CarlUpgrade.Cost.ToString());
+        PlayerPrefs.SetString("SavedCarlLevel", IdleGame.CarlUpgrade.Level.ToString());
         Loaded = true;
-
     }
-}*/
+}
+*/

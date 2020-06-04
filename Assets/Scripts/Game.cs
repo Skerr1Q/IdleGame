@@ -71,6 +71,10 @@ public class Game
                 }
 
                 Stage += 1;
+                if (Stage > StageMax)
+                {
+                    StageMax = Stage;
+                }
                 StageEnemy = spawnEnemy(Stage);
             }
         }

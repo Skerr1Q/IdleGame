@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class GameUI : MonoBehaviour
 {
     public Game IdleGame{get; set;}
-    //public GameLoader IdleGameLoader{get; set;}
+    //public static GameLoader IdleGameLoader = new GameLoader();
 
     public Text coinsText;
     public Text dpsText;
@@ -26,9 +26,6 @@ public class GameUI : MonoBehaviour
     public Text SheenText;
     public Text CarlText;
 
-    public GameObject saveButton;
-    public GameObject loadButton;
-
     public GameObject backButton;
     public GameObject forwardButton;
 
@@ -37,9 +34,15 @@ public class GameUI : MonoBehaviour
 
     public void Start()
     {
-        IdleGame = new Game();
-        //IdleGameLoader = new GameLoader();
-        //LoadGame();
+
+        //if (GameLoader.Loaded == false)
+        //{
+            IdleGame = new Game();
+        //}
+        //else
+        //{
+        //    LoadGame();
+        //}
 
         changeText();
         TimerCap = 30;
@@ -52,8 +55,13 @@ public class GameUI : MonoBehaviour
         {
             enableTimer();
         }
+        else
+        {
+            Timer = (float)TimerCap;
+        }
         changeText();
         IdleGame.autoHitEnemy();
+        //SaveGame();
     }
 
     public void changeText()
@@ -144,7 +152,7 @@ public class GameUI : MonoBehaviour
 
     public void LoadGame()
     {
-        IdleGameLoader.Load(IdleGame);
+        IdleGame = IdleGameLoader.Load();
     }
 */
 }
