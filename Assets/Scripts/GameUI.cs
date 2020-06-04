@@ -29,7 +29,10 @@ public class GameUI : MonoBehaviour
     public GameObject saveButton;
     public GameObject loadButton;
 
-    public int TimerCap{get; set;} = 30;
+    public GameObject backButton;
+    public GameObject forwardButton;
+
+    public int TimerCap{get; set;}
     public float Timer{get; set;}
 
     public void Start()
@@ -39,11 +42,16 @@ public class GameUI : MonoBehaviour
         //LoadGame();
 
         changeText();
+        TimerCap = 30;
         Timer = (float)TimerCap;
     }
 
     public void Update()
     {
+        if (IdleGame.StageEnemy is Boss)
+        {
+            enableTimer();
+        }
         changeText();
         IdleGame.autoHitEnemy();
     }
@@ -106,16 +114,27 @@ public class GameUI : MonoBehaviour
 
     public void enableTimer()
     {
-        if (IdleGame.StageEnemy is Boss)
-        {
-            Timer -= Time.deltaTime;
-        }
+        Timer -= Time.deltaTime;
                         
         if (Timer <= 0)
         {
             IdleGame.StageEnemy.HP = IdleGame.StageEnemy.HPMax;
             Timer = (float)TimerCap;
         }
+    }
+
+    public void forwardStage()
+    {
+        IdleGame.Stage += 1;
+        IdleGame.StageEnemy = IdleGame.spawnEnemy(IdleGame.Stage);
+        Timer = (float)TimerCap;
+    }
+
+    public void backStage()
+    {
+        IdleGame.Stage -= 1;
+        IdleGame.StageEnemy = IdleGame.spawnEnemy(IdleGame.Stage);
+        Timer = (float)TimerCap;
     }
 /*
     public void SaveGame()
