@@ -12,28 +12,26 @@ public abstract class Enemy
 	public float HP{get; set;}
 	public int HPMax{get; set;}
 	public int Reward{get; set;}
-	public abstract string Name{get; set;}
+	public string Name{get; set;}
 }
 
 class Mob: Enemy
 {
-	public override string Name{get; set;} = "Earth Golem";
-
-	public Mob(int stage){
+	public Mob(int stage, string name){
 		HPMax = 10 +  (stage * 2);
 		HP = (float)HPMax;
 		Reward = 4 + ((stage - 1) * 2);
+		Name = name;
 	}
 }
 
 class Boss: Enemy
 {
-	public new float Reward{get; set;}
-	public override string Name{get; set;} = "Wooden Golem";
+	public new float Reward{get;} = 0.2f;
 
-	public Boss(int stage){
-		HPMax = 10 +  (stage * 4);
+	public Boss(int stage, string name){
+		HPMax = 10 +  (stage * 6);
 		HP = (float)HPMax;
-		Reward = 1.0f + (0.2f * ((float)(stage)/(5.0f)));
+		Name = name;
 	}
 }

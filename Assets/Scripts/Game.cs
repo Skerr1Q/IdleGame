@@ -14,6 +14,8 @@ public class Game
 	public int StageMax{get; set;}
 	public float Modifier{get; set;}
 
+    public EnemyCreator MobEnemyCreator{get; set;}
+    public EnemyCreator BossEnemyCreator{get; set;}
     public Enemy StageEnemy{get; set;}
     
     public HeroUpgrade JimmyUpgrade{get; set;}
@@ -33,12 +35,14 @@ public class Game
         SheenUpgrade = new HeroUpgrade("Sheen", 5.0f, 100);
         CarlUpgrade = new HeroUpgrade("Carl", 30.0f, 200);
 
+        MobEnemyCreator = new MobCreator("Earth Enemy");
+        BossEnemyCreator = new BossCreator("Wooden Enemy");
         StageEnemy = spawnEnemy(Stage);
     }
 
     public float getDPS()
     {
-        return (JimmyUpgrade.DPS + SheenUpgrade.DPS + CarlUpgrade.DPS);
+        return Modifier*(JimmyUpgrade.DPS + SheenUpgrade.DPS + CarlUpgrade.DPS);
     }
 
     public void clickEnemy()
@@ -63,7 +67,7 @@ public class Game
                 }
                 if (StageEnemy is Boss)
                 {
-                    Modifier = StageEnemy.Reward;
+                    Modifier += StageEnemy.Reward;
                 }
 
                 Stage += 1;
@@ -76,15 +80,13 @@ public class Game
         Enemy StageEnemy;
         if ( stage % 5 != 0 )
         {
-            StageEnemy = new Mob(stage);
+            StageEnemy = MobEnemyCreator.createEnemy(stage);
 		}
         else
         {
-            StageEnemy = new Boss(stage);                  
+            StageEnemy = BossEnemyCreator.createEnemy(stage);                  
 		}
         return StageEnemy;
     }
-
-
 }
 

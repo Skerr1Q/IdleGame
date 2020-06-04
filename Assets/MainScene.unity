@@ -1358,10 +1358,13 @@ MonoBehaviour:
   healthText: {fileID: 685355657}
   timerText: {fileID: 555318240}
   nameText: {fileID: 2067271210}
+  modifierText: {fileID: 1912173070}
   ClickText: {fileID: 1249588976}
   JimmyText: {fileID: 2032420725}
   SheenText: {fileID: 1801818851}
   CarlText: {fileID: 1306562142}
+  saveButton: {fileID: 1608438256}
+  loadButton: {fileID: 1221840074}
 --- !u!224 &969774028
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1378,8 +1381,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -550.9, y: 221.4}
+  m_SizeDelta: {x: 46.86432, y: 57.18689}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1132655840
 GameObject:
@@ -1655,7 +1658,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1221840077}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 969774027}
+        m_MethodName: LoadGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1221840077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2390,7 +2404,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1608438259}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 969774027}
+        m_MethodName: SaveGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1608438259
 MonoBehaviour:
   m_ObjectHideFlags: 0
