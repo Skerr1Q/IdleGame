@@ -133,26 +133,41 @@ public class GameUI : MonoBehaviour
 
     public void forwardStage()
     {
-        IdleGame.Stage += 1;
-        IdleGame.StageEnemy = IdleGame.spawnEnemy(IdleGame.Stage);
-        Timer = (float)TimerCap;
+        if (IdleGame.Stage == IdleGame.StageMax)
+        {
+            throw new StageNotFoundException("Cannot exceed maximum stage.");
+        }
+        else
+        {
+            IdleGame.Stage += 1;
+            IdleGame.StageEnemy = IdleGame.spawnEnemy(IdleGame.Stage);
+            Timer = (float)TimerCap;
+        }
+
     }
 
     public void backStage()
     {
-        IdleGame.Stage -= 1;
-        IdleGame.StageEnemy = IdleGame.spawnEnemy(IdleGame.Stage);
-        Timer = (float)TimerCap;
-    }
-/*
-    public void SaveGame()
-    {
-        IdleGameLoader.Save(IdleGame);
+        if (IdleGame.Stage == 1)
+        {
+            throw new StageNotFoundException("There is no stage 0");
+        }
+        else
+        {
+            IdleGame.Stage -= 1;
+            IdleGame.StageEnemy = IdleGame.spawnEnemy(IdleGame.Stage);
+            Timer = (float)TimerCap;
+        }
     }
 
-    public void LoadGame()
-    {
-        IdleGame = IdleGameLoader.Load();
-    }
-*/
+//    public void SaveGame()
+//    {
+//        IdleGameLoader.Save(IdleGame);
+//    }
+//
+//    public void LoadGame()
+//    {
+//        IdleGame = IdleGameLoader.Load();
+//    }
+
 }
