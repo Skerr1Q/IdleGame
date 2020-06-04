@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +8,7 @@ using UnityEngine.UI;
 
 public class GameLoader : MonoBehaviour
 {        
-    public Game IdleGame{get; set;}
-
     public static bool Loaded = false;
-
-    public GameLoader(Game idleGame)
-    {
-        IdleGame = idleGame;
-    }
 
     public int savedStage;
     public int savedStageMax;
@@ -34,10 +27,8 @@ public class GameLoader : MonoBehaviour
     public int savedCarlCost;
     public int savedCarlLevel;
 
-    public Game Load()
+    public void Load(Game IdleGame)
     {
-        Game IdleGame;
-
         savedStage = PlayerPrefs.GetInt("SavedStage");
         IdleGame.Stage = savedStage;
 
@@ -86,15 +77,14 @@ public class GameLoader : MonoBehaviour
         savedCarlLevel = PlayerPrefs.GetInt("SavedCarlLevel");
         IdleGame.CarlUpgrade.Level = savedCarlLevel;
 
-        return IdleGame;
     }
 
-    public void Save()
+    public void Save(Game IdleGame)
     {
         PlayerPrefs.SetInt("SavedStage", IdleGame.Stage);
         PlayerPrefs.SetInt("SavedStage", IdleGame.StageMax);
         PlayerPrefs.SetInt("SavedMoney", IdleGame.Coins);
-        PlayerPrefs.GetFloat("SavedModifier", IdleGame.Modifier);
+        PlayerPrefs.SetFloat("SavedModifier", IdleGame.Modifier);
 
         PlayerPrefs.SetInt("SavedClickDamage", IdleGame.ClickUpgrade.Damage);
         PlayerPrefs.SetInt("SavedClickCost", IdleGame.ClickUpgrade.Cost);
@@ -114,4 +104,4 @@ public class GameLoader : MonoBehaviour
         Loaded = true;
 
     }
-}
+}*/

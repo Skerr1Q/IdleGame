@@ -10,8 +10,8 @@ using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
-    public Game IdleGame{get; set;} = new Game();
-    public GameLoader IdleGameLoader{get; set;}
+    public Game IdleGame{get; set;}
+    //public GameLoader IdleGameLoader{get; set;}
 
     public Text coinsText;
     public Text dpsText;
@@ -35,7 +35,7 @@ public class GameUI : MonoBehaviour
     public void Start()
     {
         IdleGame = new Game();
-        //IdleGameLoader = new GameLoader(IdleGame);
+        //IdleGameLoader = new GameLoader();
         //LoadGame();
 
         changeText();
@@ -117,14 +117,15 @@ public class GameUI : MonoBehaviour
             Timer = (float)TimerCap;
         }
     }
-
+/*
     public void SaveGame()
     {
-        IdleGameLoader.Save();
+        IdleGameLoader.Save(IdleGame);
     }
 
     public void LoadGame()
     {
-        IdleGame = IdleGameLoader.Load();
+        IdleGameLoader.Load(IdleGame);
     }
+*/
 }

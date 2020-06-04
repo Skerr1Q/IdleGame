@@ -67,7 +67,7 @@ public class Game
                 }
                 if (StageEnemy is Boss)
                 {
-                    Modifier += StageEnemy.Reward;
+                    Modifier += StageEnemy.Modifier;
                 }
 
                 Stage += 1;
