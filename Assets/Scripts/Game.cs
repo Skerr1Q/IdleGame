@@ -35,8 +35,8 @@ public class Game
         SheenUpgrade = new HeroUpgrade("Sheen", 5.0f, 100);
         CarlUpgrade = new HeroUpgrade("Carl", 30.0f, 200);
 
-        MobEnemyCreator = new MobCreator("Earth Enemy");
-        BossEnemyCreator = new BossCreator("Wooden Enemy");
+        MobEnemyCreator = new MobCreator("Libby");
+        BossEnemyCreator = new BossCreator("Cindy");
         StageEnemy = spawnEnemy(Stage);
     }
 

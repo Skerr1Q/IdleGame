@@ -13,6 +13,10 @@ public class GameUI : MonoBehaviour
     public Game IdleGame{get; set;}
     //public static GameLoader IdleGameLoader = new GameLoader();
 
+    public GameObject enemyButton;
+    public Sprite LibbyImage;
+    public Sprite CindyImage;
+
     public Text coinsText;
     public Text dpsText;
     public Text stageText;
@@ -60,6 +64,7 @@ public class GameUI : MonoBehaviour
             Timer = (float)TimerCap;
         }
         changeText();
+        changeImage();
         IdleGame.autoHitEnemy();
         //SaveGame();
     }
@@ -77,6 +82,18 @@ public class GameUI : MonoBehaviour
         SheenText.text = "Upgrade Sheen\nLevel: " + IdleGame.SheenUpgrade.Level + "    Cost: " + IdleGame.SheenUpgrade.Cost + "    DPS: " + IdleGame.SheenUpgrade.DPS;
         CarlText.text = "Upgrade Carl\nLevel: " + IdleGame.CarlUpgrade.Level + "    Cost: " + IdleGame.CarlUpgrade.Cost + "    DPS: " + IdleGame.CarlUpgrade.DPS;
         timerText.text = Timer.ToString("F2") + " / " + TimerCap;
+    }
+
+    public void changeImage()
+    {
+        if (IdleGame.StageEnemy is Mob)
+        {
+            enemyButton.GetComponent<Image>().sprite = LibbyImage;        
+        }
+        else if (IdleGame.StageEnemy is Boss)
+        {
+            enemyButton.GetComponent<Image>().sprite = CindyImage;
+        }
     }
 
     public void ClickUpgradeButtonClick()

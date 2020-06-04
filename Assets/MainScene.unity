@@ -234,8 +234,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 400.5, y: -87}
-  m_SizeDelta: {x: 331.1951, y: 245}
+  m_AnchoredPosition: {x: 411, y: -94}
+  m_SizeDelta: {x: 165.96774, y: 215.67908}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &310582562
 MonoBehaviour:
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 36d3179665d8e4145ab017f763ffcfcf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58fc79df3a8eb744295fdd75d56f3a08, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1363,6 +1363,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f31247c5cebce488b59b215731b014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyButton: {fileID: 310582560}
+  LibbyImage: {fileID: 21300000, guid: 58fc79df3a8eb744295fdd75d56f3a08, type: 3}
+  CindyImage: {fileID: 21300000, guid: 110ddc45181b461438f78f5dcd7a77ce, type: 3}
   coinsText: {fileID: 1758817570}
   dpsText: {fileID: 511227985}
   stageText: {fileID: 251788914}
@@ -1374,8 +1377,6 @@ MonoBehaviour:
   JimmyText: {fileID: 2032420725}
   SheenText: {fileID: 1801818851}
   CarlText: {fileID: 1306562142}
-  saveButton: {fileID: 0}
-  loadButton: {fileID: 0}
   backButton: {fileID: 825603824}
   forwardButton: {fileID: 2022176155}
 --- !u!224 &969774028
